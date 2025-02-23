@@ -9,23 +9,28 @@ function requestIncreaser(){
     console.log(`Total number of requests = ${requestCount}`);
 }
 
-// better routing, add database, middleware
-app.get("/sum", function(req,res){
-    requestIncreaser()
+function realSumHandler(req,res){
     const a = parseInt(req.query.a);
     const b = parseInt(req.query.b);
+    console.log("The sum is \n")
+    console.log(a+b);
     res.json({
         ans: a+b,
-    })
-});
+    });
+}
 
-app.get("/multiply", function(req,res){
-    requestIncreaser()
+function realMultiplyHandler(req,res){
     const a = parseInt(req.query.a);
     const b = parseInt(req.query.b);
+
     res.json({
         ans: a*b,
-    })
-});
+    });
+}
+
+// better routing, add database, middleware
+app.get("/sum", requestIncreaser, realSumHandler);
+
+app.get("/multiply",requestIncreaser,realMultiplyHandler);
 
 app.listen(3000);
