@@ -1,48 +1,16 @@
 const express = require("express");
+const bodyParser = require("body-parser"); 
 
 const app = express();
 
-function loggerMiddleware(req,res,next){
-    console.log(`Method is ${req.method}`)
-    console.log(`Url is ${req.Url}`)
-    console.log(new Date())
+app.use(express.json())
 
-    next()
-}
-
-app.use(loggerMiddleware);
-
-app.get("/sum", function(req, res) {
-    const a = parseInt(req.query.a);
-    const b = parseInt(req.query.b);
+app.post("/sum", function(req, res) {
+    const a = parseInt(req.body.a);
+    const b = parseInt(req.body.b);
 
     res.json({
         ans: a + b
-    })
-});
-
-app.get("/multiply", function(req, res) {
-    const a = req.query.a;
-    const b = req.query.b;
-    res.json({
-        ans: a * b
-    })
-});
-
-app.get("/divide", function(req, res) {
-    const a = req.query.a;
-    const b = req.query.b;
-    res.json({
-        ans: a / b
-    })
-
-});
-
-app.get("/subtract", function(req, res) {
-    const a = parseInt(req.query.a);
-    const b = parseInt(req.query.b);
-    res.json({
-        ans: a - b
     })
 });
 
