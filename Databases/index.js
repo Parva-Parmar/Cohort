@@ -15,7 +15,7 @@ app.post("/signup", async function(req,res){
 
     await UserModel.create({
         email: email,
-        password: password,
+        password:  password,
         name: name
     })
 
