@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-console.log("connected to")
 mongoose.connect("mongodb+srv://parva04cp:u6lTTYAT8FCOPn82@cluster0.rq6ojvr.mongodb.net/coursera-app");
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId;
@@ -36,7 +35,7 @@ const adminModel = mongoose.model("admin", adminSchema);
 const courseModel = mongoose.model("course", courseSchema);
 const purchaseModel = mongoose.model("purchase", purchaseSchema);
 
-module.export = {
+module.exports = {
     userModel,
     adminModel,
     courseModel,
