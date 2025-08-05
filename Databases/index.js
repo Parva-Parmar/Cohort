@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const JWt_SECRET = "parva@123";
 
-mongoose.connect("mongodb+srv://parva04cp:u6lTTYAT8FCOPn82@cluster0.rq6ojvr.mongodb.net/todo-collection-parva");
+mongoose.connect("");
 const app = express();
 app.use(express.json());
 
